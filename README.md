@@ -1,1 +1,1 @@
-# example-paper-acf
+# ExamplePaperAcf

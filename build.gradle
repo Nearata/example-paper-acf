@@ -1,0 +1,34 @@
+plugins {
+  id 'java-library'
+  id 'eclipse'
+  id "com.github.johnrengelman.shadow" version "7.0.0"
+}
+
+repositories {
+  mavenCentral()
+  jcenter()
+  maven { url 'https://papermc.io/repo/repository/maven-public/' }
+  maven { url = "https://repo.aikar.co/content/groups/aikar/" }
+}
+
+dependencies {
+  compileOnly group: 'io.papermc.paper', name: 'paper-api', version: '1.17.1-R0.1-SNAPSHOT'
+  implementation group: 'co.aikar', name: 'acf-paper', version: '0.5.0-SNAPSHOT'
+}
+
+java {
+  withJavadocJar()
+  withSourcesJar()
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+version = '1.0.0'
+group = 'com.github.nearata.examplepaperacf'
+compileJava.options.encoding = 'UTF-8'
+
+shadowJar {
+   relocate 'co.aikar.commands', 'com.github.nearata.examplepaperacf.acf'
+   relocate 'co.aikar.locales', 'com.github.nearata.examplepaperacf.locales'
+}
+
+build.dependsOn shadowJar

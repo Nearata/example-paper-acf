@@ -1,0 +1,8 @@
+name: ExamplePaperAcf
+main: com.github.nearata.examplepaperacf.ExamplePaperAcf
+version: 1.0.0
+api-version: 1.13
+permissions:
+  examplepaperacf.command.hello:
+    description: Can say hello to players.
+    default: true
