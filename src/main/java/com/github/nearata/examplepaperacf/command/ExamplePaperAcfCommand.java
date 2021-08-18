@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import com.github.nearata.examplepaperacf.ExamplePaperAcf;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.CommandHelp;
+import co.aikar.commands.ShowCommandHelp;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.CommandPermission;
@@ -26,9 +26,9 @@ public final class ExamplePaperAcfCommand extends BaseCommand
 
     @Default
     @HelpCommand
-    public void showHelp(CommandSender sender, CommandHelp help)
+    public void showHelp(CommandSender sender)
     {
-        help.showHelp();
+        throw new ShowCommandHelp(false);
     }
 
     @Subcommand("hello")
